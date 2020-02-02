@@ -12,8 +12,9 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<String> listA = new ArrayList<>(5);//Create a list of strings
 
-        Scanner s = new Scanner(System.in);
         System.out.println("Please enter  information");
+
+        Scanner s = new Scanner(System.in);
         listA.add(s.nextLine());
         listA.add(s.nextLine());
         listA.add(s.nextLine());
@@ -34,8 +35,8 @@ public class Main {
         listB.add(s.nextLine());
         listB.add(s.nextLine());
 
-        Iterator<String> iterator2= listB.iterator();
-        while (iterator2.hasNext()) {
+        iterator =listB.iterator();
+        while (iterator.hasNext()) {
             System.out.println(listB.iterator().next());
 
         }
