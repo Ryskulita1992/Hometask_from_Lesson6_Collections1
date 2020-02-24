@@ -1,19 +1,18 @@
 package com.company;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.awt.*;
 import java.util.*;
 import java.util.List;
 
-public class Main {
+import static java.lang.Thread.sleep;
 
+public class Main {
     public static void main(String[] args) {
 
-
         ArrayList<String> listA = new ArrayList<>(5);//Create a list of strings
-
-
-        System.out.println("Please enter  information");
-
+        System.out.println("Please enter  information for List A");
         Scanner s = new Scanner(System.in);
         listA.add(s.nextLine());
         listA.add(s.nextLine());
@@ -21,64 +20,60 @@ public class Main {
         listA.add(s.nextLine());
         listA.add(s.nextLine());
 
-        System.out.println(listA);
-
-        Iterator<String> iterator = listA.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
+        Iterator<String> iter = listA.iterator();
+        while (iter.hasNext()) {
+            String a = iter.next();
+            System.out.println(a);
         }
+
 
         ArrayList<String> listB = new ArrayList<>(5);
-        System.out.println("Please enter information");
+        System.out.println("Please enter information for List B");
         listB.add(s.nextLine());
         listB.add(s.nextLine());
         listB.add(s.nextLine());
         listB.add(s.nextLine());
         listB.add(s.nextLine());
+        iter = listB.iterator();
+        while (iter.hasNext()) {
+            String b = iter.next();
+            System.out.println(b);
+        }
 
-        iterator = listB.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(listB.iterator().next());
+        ArrayList<String> listC = new ArrayList<>(10);
+        System.out.println(" \n   Sorted List C from lists A and B: ");
+        Collections.reverse(listB);
+        for (int i = 0; i < listB.size(); i++) {
+            listC.add(listA.get(i));
+            listC.add(listB.get(i));
+            iter = listC.iterator(); }
+        while (iter.hasNext()) {
+            String c = iter.next();
+            System.out.println(c); }
 
+
+        Collections.addAll(listC);
+        System.out.println("List C after sorting by length");
+        Collections.sort(listC, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.length() - o2.length();
+            }
+        });
+        iter = listC.iterator();
+        while (iter.hasNext()) {
+            String c2=iter.next();
+            System.out.println(c2);
         }
 
 
-        ArrayList<String> listC = new ArrayList<>(10);
-        listA.add(0, "");
-        listB.add(4,"");
-        listA.add(1,"");
-        listB.add(3,"");
-        listA.add(2,"");
-        listB.add(2,"");
-        listA.add(3,"");
-        listA.add(1,"");
-        listA.add(4,"");
-        listA.add(0,"");
 
 
-        System.out.println("List after adding listA + listB" +
-                " \n" + listC);
-
-        System.out.println(" The process is finished because i could not make it better \uD83D\uDE0Af");
-
-
-        //Collections.sort(listB, Collections.reverseOrder());
-        //Collections.reverse(listB);
-        /* Collections.sort method is sorting the
-        elements of ArrayList in ascending order. */
-    }}
+    }
+    }
 
 
 
-
-
-
-
-
-
-
-
-
-
+        
 
 
